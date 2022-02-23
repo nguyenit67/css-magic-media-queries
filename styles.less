@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;400&display=swap");
 
+@import "variables.less";
+
 * {
   box-sizing: border-box;
   font-family: "Mukta", sans-serif;
@@ -18,7 +20,7 @@ Task 1: Use the mobile-first approach to:
 Task 2: Delete media queries in task 1 and use the desktop-first approach to have the same result
 Task 3: Show the navigation on the top of the page instead of on the left when the user is on the portrait view
 Task 4: 
-- Have the top navigation only if the screen is narrower than 640px.
+- Have the top navigation if the screen is narrower than 640px.
 - Change the font size of the icons to be 24px and navigation width to be 64px if the screen is wider than 768px or on the landscape view */
 
 main {
@@ -40,7 +42,7 @@ body {
 
 h1 {
   margin-top: 0;
-  font-size: 24px;
+  font-size: 40px;
   line-height: 1;
   text-transform: uppercase;
 
@@ -49,7 +51,7 @@ h1 {
 
 p {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   color: #434343;
   font-weight: 300;
 }
@@ -82,40 +84,34 @@ img {
 }
 
 .collection-grid {
+  display: grid;
+  align-items: center;
   margin-top: 32px;
 
-  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 80px;
 
-  grid-template-columns: repeat(1, 1fr);
-  gap: 40px;
-
-  align-items: center;
-}
-
-@media screen and (min-width: 640px) {
-  .collection-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .collection-grid {
+  @media screen and (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
     gap: 60px;
   }
 
-  h1 {
-    font-size: 40px;
+  @media screen and (max-width: @TABLET_VIEWPORT_WIDTH) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
   }
 
-  p {
-    font-size: 18px;
+  @media screen and (max-width: 640px) {
+    grid-template-columns: 1fr;
   }
 }
 
-@media only screen and (min-width: 1024px) {
-  .collection-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 80px;
+@media screen and (max-width: @TABLET_VIEWPORT_WIDTH) {
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
   }
 }
