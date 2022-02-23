@@ -101,7 +101,7 @@ img {
     gap: 40px;
   }
 
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: @PHONE_VIEWPORT_WIDTH) {
     grid-template-columns: 1fr;
   }
 }
@@ -113,5 +113,18 @@ img {
 
   p {
     font-size: 16px;
+  }
+}
+
+@media (max-width: @PHONE_VIEWPORT_WIDTH), (orientation: portrait) {
+  body {
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: none;
+  }
+
+  nav {
+    flex-flow: row;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #dbdce1;
   }
 }
