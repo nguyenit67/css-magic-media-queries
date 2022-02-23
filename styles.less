@@ -116,7 +116,7 @@ img {
   }
 }
 
-@media (max-width: @PHONE_VIEWPORT_WIDTH), screen and (orientation: portrait) {
+@media (orientation: portrait) and (max-width: @PHONE_VIEWPORT_WIDTH) {
   body {
     grid-template-rows: 50px 1fr;
     grid-template-columns: none;
@@ -126,5 +126,15 @@ img {
     flex-flow: row;
     justify-content: space-evenly;
     border-bottom: 1px solid #dbdce1;
+  }
+}
+
+@media (min-width: @TABLET_VIEWPORT_WIDTH), (orientation: landscape) {
+  body {
+    grid-template-columns: 64px 1fr;
+  }
+
+  nav .material-icons {
+    font-size: 24px;
   }
 }
